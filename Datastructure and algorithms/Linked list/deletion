@@ -1,0 +1,108 @@
+#Deletion at Tail node in LinkedList
+class jim:
+    def __init__(self,dt):
+        self.dt=dt
+        self.nxt=None
+
+def linkedlist(curr):
+    while curr!=None:
+        print(curr.dt,end=' --> ')
+        curr=curr.nxt
+
+def InsertionAtBeginning(head,ele):
+    temp=jim(ele)
+    while head==None:
+        return temp
+    temp.nxt=head
+    return temp
+
+def DeletionAtTailNode(head):
+    curr=head
+    if curr==None or curr.nxt==None:
+        return None
+    while curr.nxt.nxt!=None:
+        curr=curr.nxt
+    curr.nxt=None
+    return head
+
+head=None
+n=[10,20,30,40,50,60,70,80]
+for ele in n:
+    head=InsertionAtBeginning(head,ele)
+print(linkedlist(head))
+head=DeletionAtTailNode(head)
+print(linkedlist(head))
+
+
+#Deletion at Beginning in LinkedList
+class jim:
+    def __init__(self,dt):
+        self.dt=dt
+        self.nxt=None
+
+def linkedlist(curr):
+    while curr!=None:
+        print(curr.dt,end=' --> ')
+        curr=curr.nxt
+
+def InsertionAtBeginning(head,ele):
+    temp=jim(ele)
+    while head==None:
+        return temp
+    temp.nxt=head
+    return temp
+
+def DeletionAtBeginning(head):
+    if head==None:
+        return None
+    secondnode=head.nxt
+    head.nxt=None
+    return secondnode
+
+head=None
+n=[10,20,30,40,50,60,70,80]
+for ele in n:
+    head=InsertionAtBeginning(head,ele)
+print(linkedlist(head))
+head=DeletionAtBeginning(head)
+print(linkedlist(head))
+
+
+#Deletion at Specific Position in LinkedList
+class jim:
+    def __init__(self,dt):
+        self.dt=dt
+        self.nxt=None
+
+def linkedlist(curr):
+    while curr!=None:
+        print(curr.dt,end=' --> ')
+        curr=curr.nxt
+
+def InsertionAtBeginning(head,ele):
+    temp=jim(ele)
+    while head==None:
+        return temp
+    temp.nxt=head
+    return temp
+
+def DeletionAtSpecificPosition(head,pos):
+    if pos==0:
+        return DeletionAtSpecificPosition(head)
+    currIdx=0
+    currentnode=head
+    while currIdx!=pos-1:
+        currIdx+=1
+        currentnode=currentnode.nxt
+    delnode=currentnode.nxt
+    currentnode.nxt=delnode.nxt
+    delnode.nxt=None
+    return head
+
+head=None
+n=[10,20,30,40,50,60,70,80]
+for ele in n:
+    head=InsertionAtBeginning(head,ele)
+print(linkedlist(head))
+head=DeletionAtSpecificPosition(head,5)
+print(linkedlist(head))

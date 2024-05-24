@@ -1,0 +1,87 @@
+class Box:
+    def __init__(self, data):
+        self.data = data 
+        self.next = None
+
+def printLinkedList(curr):
+    if curr==None:
+        print("queue is empty")
+        return 
+    while curr != None:
+        print(curr.data, end = " --> ")
+        curr = curr.next 
+    print()
+
+  
+        
+def enQueue(head, ele):
+    temp = Box(ele) 
+    if head == None:
+        return temp
+    tail = head 
+    
+    while tail.next != None:
+        tail = tail.next 
+    tail.next = temp
+    return head 
+
+
+
+    
+
+
+
+def deQueue(head):
+     if head==None:
+         return None
+     secondNode=head.next
+     head.next=None
+     return secondNode
+
+
+queueHead = None 
+printLinkedList(queueHead)
+queueHead = enQueue(queueHead, 34)
+queueHead = enQueue(queueHead, 35)
+queueHead = enQueue(queueHead, 36)
+queueHead = enQueue(queueHead, 37)
+printLinkedList(queueHead)
+queueHead = deQueue(queueHead)
+printLinkedList(queueHead)
+queueHead = deQueue(queueHead)
+printLinkedList(queueHead)
+ 
+ 
+
+
+# n = int(input())
+# for i in range(n):
+#     ele = int(input())
+#     head = insertAtTailNode(head, ele)
+    
+
+
+
+        
+# block creation is happening in below 4 lines      
+#obj1 = Box(10)
+#print("Printing address from main function", obj1)
+# obj2 = Box(20)
+# obj3 = Box(30)
+# obj4 = Box(40) 
+# establishing links in below 4 lines
+# obj1.next = obj2 
+# obj2.next = obj3 
+# obj3.next = obj4 
+# obj4.next = None 
+
+
+
+
+
+
+
+
+
+
+

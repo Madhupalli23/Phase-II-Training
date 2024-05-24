@@ -1,0 +1,46 @@
+class Tree:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def levelOrder(root):
+    if root is None:
+        return []
+    res = []
+    l = 0
+    q = [root]
+    while len(q) > 0:
+        n = len(q)
+        sub = []
+        for i in range(n):
+            c = q.pop(0)
+            sub.append(c.data)
+            if c.left is not None:
+                q.append(c.left)
+            if c.right is not None:
+                q.append(c.right)
+        if l % 2 != 0:  # Reverse on odd levels
+            sub = sub[::-1]
+        res.append(sub)
+        l += 1
+    return res
+
+root = Tree(11)
+root.left = Tree(7)
+root.right = Tree(15)
+root.left.left = Tree(5)
+root.left.right = Tree(9)
+root.left.left.left = Tree(3)
+root.left.right.left = Tree(8)
+root.left.right.right = Tree(10)
+root.right.left = Tree(13)
+root.right.right = Tree(20)
+root.right.left.left = Tree(12)
+root.right.left.right = Tree(14)
+root.right.right.left = Tree(18)
+root.right.right.right = Tree(25)
+
+r = levelOrder(root)
+for i in r:
+    print(*i, sep=' ')

@@ -1,0 +1,50 @@
+class Tree:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+    
+    def topViewHelper(self,root, store, hd, level):
+        if root == None:
+            return
+        if hd not in store or store[hd][0] <=level:
+            store[hd] = [level, root.data]
+ 
+        self.topViewHelper(root.left, store, hd - 1, level + 1)
+        self.topViewHelper(root.right, store, hd + 1, level + 1)
+ 
+    def bottomView(self,root):
+        result = []
+        if root == None:
+            return result
+        store = {}
+        self.topViewHelper(root, store, 0, 0)
+        sortedKeys = sorted(store.keys())
+        for key in sortedKeys:
+            result.append(store[key][1])
+        return result
+
+# Create the binary tree
+root = Tree(11)
+root.left = Tree(7)
+root.right = Tree(15)
+root.left.left = Tree(5)
+root.left.right = Tree(9)
+root.left.left.left = Tree(3)
+root.left.right.left = Tree(8)
+root.left.right.right = Tree(10)
+root.right.left = Tree(13)
+root.right.right = Tree(20)
+root.right.left.left = Tree(12)
+root.right.left.right = Tree(14)
+root.right.right.left = Tree(18)
+root.right.right.right = Tree(25)
+
+# Create an instance of the Tree class
+tree = Tree(None)
+
+# Call the topView method on the instance
+r = tree.bottomView(root)
+
+# Print the result
+print(*r)

@@ -1,0 +1,41 @@
+class Tree:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+def RightViewOrder(root):
+    if root==None:
+        return 
+    res=[]
+    q=[root]
+    while len(q)>0:
+        n=len(q)
+        for i in range(n):
+            c=q.pop(0)
+            if i==n-1:
+                res.append(c.data)
+            if c.left!=None:
+                q.append(c.left)
+            if c.right!=None:
+                q.append(c.right)
+
+    return res
+        
+    
+root = Tree(11)
+root.left = Tree(7)
+root.right = Tree(15)
+root.left.left = Tree(5)
+root.left.right = Tree(9)
+root.left.left.left = Tree(3)
+root.left.right.left = Tree(8)
+root.left.right.right = Tree(10)
+root.right.left = Tree(13)
+root.right.right = Tree(20)
+root.right.left.left = Tree(12)
+root.right.left.right = Tree(14)
+root.right.right.left = Tree(18)
+root.right.right.right = Tree(25)
+r=RightViewOrder(root)
+print(*r)
+

@@ -1,0 +1,92 @@
+#Insertion at Tail Node in LinkedList
+class jim:
+    def __init__(self,dt):
+        print("Printing add from constructor",self)
+        self.dt=dt
+        self.nxt=None
+
+def linkedlist(curr):
+    while curr!=None:
+        print(curr.dt,end='-->')
+        curr=curr.nxt
+
+def InsertionAtTailNode(head,ele):
+    temp=jim(ele)
+    while head==None:
+        return temp
+    tail=head
+    while tail.nxt!=None:
+        tail=tail.nxt
+    tail.nxt=temp
+    return head
+head=None
+n=[10,20,30,40]
+for ele in n:
+    head=InsertionAtTailNode(head,ele)
+print(linkedlist(head))
+
+
+#Insertion at Beginning in LinkedList
+class jim:
+    def __init__(self,dt):
+        print("Printing add from constructor",self)
+        self.dt=dt
+        self.nxt=None
+
+def linkedlist(curr):
+    while curr!=None:
+        print(curr.dt,end='-->')
+        curr=curr.nxt
+
+def InsertionAtBeginning(head,ele):
+    temp=jim(ele)
+    while head==None:
+        return temp
+    temp.nxt=head
+    return temp
+head=None
+n=[10,20,30,40]
+for ele in n:
+    head=InsertionAtBeginning(head,ele)
+print(linkedlist(head))
+
+
+#Insertion at Specific Position in LinkedList
+class jim:
+    def __init__(self,dt):
+        print("Printing add from constructor",self)
+        self.dt=dt
+        self.nxt=None
+
+def linkedlist(curr):
+    while curr!=None:
+        print(curr.dt,end='-->')
+        curr=curr.nxt
+
+def InsertionAtBeginning(head,ele):
+    temp=jim(ele)
+    while head==None:
+        return temp
+    temp.nxt=head
+    return temp
+
+def InsertionAtSpecificPosition(head, pos, ele):
+    if pos == 0:
+        return InsertionAtSpecificPosition(head, ele)
+    temp = jim(ele)
+    currIdx = 0 
+    currnode= head 
+    while currIdx != pos - 1:
+        currIdx += 1
+        currnode =head.nxt 
+    temp.nxt = currnode.nxt 
+    currnode.nxt = temp 
+    return head
+
+head=None
+n=[10,20,30,40]
+for ele in n:
+    head=InsertionAtBeginning(head,ele)
+print(linkedlist(head))
+head = InsertionAtSpecificPosition(head, 5, 1899)
+linkedlist(head)
